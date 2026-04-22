@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOTRO Server Status - Monitor</title>
+    <meta name="description" content="Consulta el estado de los servidores de Lord of the Rings Online en tiempo real.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Just some nice glowing background vibes -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    
+    <div class="container">
+        <header>
+            <div class="lang-selector">
+                <button onclick="changeLang('en')" class="lang-btn" data-lang="en">EN</button>
+                <button onclick="changeLang('es')" class="lang-btn" data-lang="es">ES</button>
+                <button onclick="changeLang('fr')" class="lang-btn" data-lang="fr">FR</button>
+                <button onclick="changeLang('de')" class="lang-btn" data-lang="de">DE</button>
+            </div>
+            <div class="ring-icon">💍</div>
+            <h1 data-i18n="title">LOTRO Server Status</h1>
+            <p class="subtitle" data-i18n="subtitle">Real-time monitoring of Middle-earth</p>
+        </header>
+
+        <section class="dashboard">
+            <div class="dash-col">
+                <div class="card ping-card">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-content">
+                        <h3 data-i18n="latency">Latency to NJ (Estimated)</h3>
+                        <div id="user-info">
+                            <span id="my-ping" class="ping-value loading">Calculating...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dash-col">
+                <div class="card status-card">
+                    <div class="card-icon">🌍</div>
+                    <div class="card-content">
+                        <h3 data-i18n="globalStatus">Global Status</h3>
+                        <div class="global-status">
+                            <span class="status-indicator global-indicator"></span>
+                            <span id="global-text" data-i18n="verifying">Verifying...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="table-container">
+            <table id="server-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="server">Server</th>
+                        <th data-i18n="status">Status</th>
+                        <th data-i18n="population">Population</th>
+                    </tr>
+                </thead>
+                <tbody id="server-body">
+                    <!-- Loading skeleton so it doesn't look broken while fetching -->
+                    <tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>
+                    <tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>
+                    <tr class="skeleton-row"><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td><td><div class="skeleton"></div></td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <section class="chart-section">
+            <div class="card chart-card">
+                <div class="chart-header">
+                    <div class="card-icon">📈</div>
+                    <h3 data-i18n="steamPlayers">Steam Players (Last 48 hrs)</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="steam-chart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p class="disclaimer" data-i18n="footerText">© jdocdev. Data updated every 10 min. If you like this, dropping a <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">star on GitHub</a> would be awesome ⭐</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

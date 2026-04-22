@@ -1,0 +1,41 @@
+name: Actualizar Estado de LOTRO
+
+# Cuándo se ejecuta
+on:
+  schedule:
+    # Se ejecuta cada 10 minutos
+    - cron: '*/10 * * * *'
+  # Permite ejecutarlo manualmente desde la pestaña de Actions
+  workflow_dispatch:
+
+# Permisos para poder hacer commit en el repositorio
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+        
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Usamos Node 20 (tiene fetch nativo)
+          
+      - name: Instalar dependencias
+        run: npm install
+        
+      - name: Ejecutar el Scraper
+        run: node scraper.js
+        
+      - name: Hacer Commit y Push de los cambios
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          
+          # Solo hacer commit si hubo cambios reales en servers.json
+          git add servers.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: actualiza estado de servidores LOTRO" && git push)
