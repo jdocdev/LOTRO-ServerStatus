@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOTRO Server Status - Monitor</title>
-    <meta name="description" content="Consulta el estado de los servidores de Lord of the Rings Online en tiempo real.">
+    <title>LOTRO Server Status - Real-time Monitor</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="LOTRO Server Status - Real-time Monitor">
+    <meta name="description" content="Check the real-time status, latency, and population of Lord of the Rings Online (LOTRO) servers, plus live Steam player charts.">
+    <meta name="keywords" content="LOTRO, Lord of the Rings Online, Server Status, LOTRO servers, MMO status, LOTRO ping, Steam charts">
+    <meta name="author" content="jdocdev">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#161b22">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pruebasjdoc.me/LOTRO-ServerStatus/">
+    <meta property="og:title" content="LOTRO Server Status - Real-time Monitor">
+    <meta property="og:description" content="Check the real-time status, latency, and population of Lord of the Rings Online (LOTRO) servers, plus live Steam player charts.">
+    <meta property="og:image" content="https://gls.lotro.com/favicon.ico">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pruebasjdoc.me/LOTRO-ServerStatus/">
+    <meta property="twitter:title" content="LOTRO Server Status - Real-time Monitor">
+    <meta property="twitter:description" content="Check the real-time status, latency, and population of Lord of the Rings Online (LOTRO) servers, plus live Steam player charts.">
+    <meta property="twitter:image" content="https://gls.lotro.com/favicon.ico">
+
+    <!-- Fonts & Scripts -->
+    <link rel="icon" type="image/x-icon" href="https://gls.lotro.com/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,18 +42,19 @@
     
     <div class="container">
         <header>
-            <div class="lang-selector">
-                <button onclick="changeLang('en')" class="lang-btn" data-lang="en">EN</button>
-                <button onclick="changeLang('es')" class="lang-btn" data-lang="es">ES</button>
-                <button onclick="changeLang('fr')" class="lang-btn" data-lang="fr">FR</button>
-                <button onclick="changeLang('de')" class="lang-btn" data-lang="de">DE</button>
-            </div>
+            <nav class="lang-selector" aria-label="Language Selector">
+                <button onclick="changeLang('en')" class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
+                <button onclick="changeLang('es')" class="lang-btn" data-lang="es" aria-label="Cambiar a Español">ES</button>
+                <button onclick="changeLang('fr')" class="lang-btn" data-lang="fr" aria-label="Passer en Français">FR</button>
+                <button onclick="changeLang('de')" class="lang-btn" data-lang="de" aria-label="Auf Deutsch wechseln">DE</button>
+            </nav>
             <div class="ring-icon">💍</div>
             <h1 data-i18n="title">LOTRO Server Status</h1>
             <p class="subtitle" data-i18n="subtitle">Real-time monitoring of Middle-earth</p>
         </header>
 
-        <section class="dashboard">
+        <main>
+        <section class="dashboard" aria-label="Server Dashboard">
             <div class="dash-col">
                 <div class="card ping-card">
                     <div class="card-icon">⚡</div>
@@ -85,6 +110,7 @@
                 </div>
             </div>
         </section>
+        </main>
         
         <footer>
             <p class="disclaimer" data-i18n="footerText">© jdocdev. Data updated every 10 min. If you like this, dropping a <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">star on GitHub</a> would be awesome ⭐</p>

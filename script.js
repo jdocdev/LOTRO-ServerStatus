@@ -30,7 +30,8 @@ const translations = {
         statusOffline: "Offline",
         chartLabel: "Players Online",
         popNA: "N/A",
-        footerText: '© jdocdev. Data updated every 10 min. If you like it, dropping a <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">star on GitHub</a> would be awesome ⭐'
+        footerText: '© jdocdev. Data updated every 10 min. If you like it, dropping a <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">star on GitHub</a> would be awesome ⭐',
+        metaDesc: "Check the real-time status, latency, and population of Lord of the Rings Online (LOTRO) servers, plus live Steam player charts."
     },
     es: {
         title: "Estado de Servidores LOTRO",
@@ -59,7 +60,8 @@ const translations = {
         statusOffline: "Desconectado",
         chartLabel: "Jugadores Conectados",
         popNA: "N/A",
-        footerText: '© jdocdev. Datos actualizados cada 10 min. Si te sirve de algo, se agradece una <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">estrellita en GitHub</a> de forma tranki ⭐'
+        footerText: '© jdocdev. Datos actualizados cada 10 min. Si te sirve de algo, se agradece una <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">estrellita en GitHub</a> de forma tranki ⭐',
+        metaDesc: "Consulta el estado en tiempo real, latencia y población de los servidores de Lord of the Rings Online (LOTRO) y gráficas de Steam."
     },
     fr: {
         title: "État des Serveurs LOTRO",
@@ -88,7 +90,8 @@ const translations = {
         statusOffline: "Hors ligne",
         chartLabel: "Joueurs Connectés",
         popNA: "N/A",
-        footerText: '© jdocdev. Données mises à jour toutes les 10 min. Si ça vous aide, une petite <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">étoile sur GitHub</a> fait toujours plaisir ⭐'
+        footerText: '© jdocdev. Données mises à jour toutes les 10 min. Si ça vous aide, une petite <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">étoile sur GitHub</a> fait toujours plaisir ⭐',
+        metaDesc: "Vérifiez l'état en temps réel, la latence et la population des serveurs du Seigneur des Anneaux Online (SdAO)."
     },
     de: {
         title: "LOTRO Serverstatus",
@@ -117,7 +120,8 @@ const translations = {
         statusOffline: "Offline",
         chartLabel: "Verbundene Spieler",
         popNA: "N/A",
-        footerText: '© jdocdev. Daten alle 10 Minuten aktualisiert. Wenn es dir gefällt, freue ich mich über einen <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">Stern auf GitHub</a> ⭐'
+        footerText: '© jdocdev. Daten alle 10 Minuten aktualisiert. Wenn es dir gefällt, freue ich mich über einen <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">Stern auf GitHub</a> ⭐',
+        metaDesc: "Überprüfen Sie den Echtzeit-Status, die Latenz und die Bevölkerung der Herr der Ringe Online (HdRO) Server."
     }
 };
 
@@ -154,6 +158,15 @@ function changeLang(lang) {
     });
 
     updateStaticTranslations();
+
+    // Dinamismo puro para el SEO (Search Engine Optimization)
+    document.documentElement.lang = lang;
+    document.title = t('title') + " - Monitor";
+    
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && translations[lang] && translations[lang].metaDesc) {
+        metaDesc.setAttribute("content", translations[lang].metaDesc);
+    }
 
     // Actualizar ping manualmente si está cargando
     const pingEl = document.getElementById('my-ping');
