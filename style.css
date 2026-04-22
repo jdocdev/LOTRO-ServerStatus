@@ -67,7 +67,7 @@ body {
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
     animation: fadeIn 0.8s ease-out forwards;
 }
 
@@ -79,13 +79,13 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
     width: 100%;
 }
 
 header {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     position: relative;
 }
 
@@ -356,7 +356,7 @@ footer {
 
 /* Chart Section */
 .chart-section {
-    margin-top: 10px;
+    /* El espacio se maneja con el gap del contenedor main */
 }
 
 .chart-card {
