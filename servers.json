@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-04-23T20:36:07.268Z",
+  "last_updated": "2026-04-23T21:26:40.028Z",
   "servers": [
     {
       "name": "Glamdring",
       "status": "Online",
-      "pop": "Muy Alta"
+      "pop": "Baja"
     },
     {
       "name": "Sting",
       "status": "Online",
-      "pop": "Baja"
+      "pop": "Media"
     },
     {
       "name": "Peregrin",
@@ -24,17 +24,17 @@
     {
       "name": "Grond",
       "status": "Online",
-      "pop": "Media"
+      "pop": "Alta"
     },
     {
       "name": "Meriadoc",
       "status": "Online",
-      "pop": "Media"
+      "pop": "Baja"
     },
     {
       "name": "Angmar",
-      "status": "Online",
-      "pop": "Baja"
+      "status": "Offline",
+      "pop": "N/A"
     },
     {
       "name": "Mordor",
