@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-23T10:43:02.017Z",
+  "last_updated": "2026-04-23T11:46:15.625Z",
   "servers": [
     {
       "name": "Glamdring",
@@ -18,8 +18,8 @@
     },
     {
       "name": "Orcrist",
-      "status": "Offline",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Media"
     },
     {
       "name": "Grond",
@@ -29,24 +29,20 @@
     {
       "name": "Meriadoc",
       "status": "Online",
-      "pop": "Muy Alta"
+      "pop": "Baja"
     },
     {
       "name": "Angmar",
       "status": "Online",
-      "pop": "Baja"
+      "pop": "Muy Alta"
     },
     {
       "name": "Mordor",
-      "status": "Offline",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     }
   ],
   "steam_data": [
-    [
-      1776769583000,
-      756
-    ],
     [
       1776773172000,
       791
@@ -234,6 +230,10 @@
     [
       1776938768000,
       805
+    ],
+    [
+      1776942441000,
+      843
     ]
   ]
 }
