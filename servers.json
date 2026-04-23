@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-23T23:03:04.879Z",
+  "last_updated": "2026-04-23T23:58:37.389Z",
   "servers": [
     {
       "name": "Glamdring",
@@ -43,10 +43,6 @@
     }
   ],
   "steam_data": [
-    [
-      1776812848000,
-      813
-    ],
     [
       1776816503000,
       811
@@ -234,9 +230,13 @@
     [
       1776981929000,
       334
+    ],
+    [
+      1776985593000,
+      316
     ]
   ],
-  "live_players": 315,
+  "live_players": 483,
   "outage_message": "Downtime Notice: Thursday, April 23rd 6:00 PM - 10:00 PM Eastern (-4 GMT)",
   "outage_link": "https://www.lotro.com/news/lotro-downtime-042326-en?locale=en_US",
   "is_down": true
