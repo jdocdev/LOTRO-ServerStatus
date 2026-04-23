@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-04-23T09:04:42.983Z",
+  "last_updated": "2026-04-23T10:43:02.017Z",
   "servers": [
     {
       "name": "Glamdring",
       "status": "Online",
-      "pop": "Muy Alta"
+      "pop": "Baja"
     },
     {
       "name": "Sting",
       "status": "Online",
-      "pop": "Alta"
+      "pop": "Media"
     },
     {
       "name": "Peregrin",
@@ -18,39 +18,31 @@
     },
     {
       "name": "Orcrist",
-      "status": "Online",
-      "pop": "Alta"
+      "status": "Offline",
+      "pop": "N/A"
     },
     {
       "name": "Grond",
       "status": "Online",
-      "pop": "Media"
+      "pop": "Baja"
     },
     {
       "name": "Meriadoc",
-      "status": "Offline",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Muy Alta"
     },
     {
       "name": "Angmar",
-      "status": "Offline",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Mordor",
-      "status": "Online",
-      "pop": "Muy Alta"
+      "status": "Offline",
+      "pop": "N/A"
     }
   ],
   "steam_data": [
-    [
-      1776762437000,
-      641
-    ],
-    [
-      1776766119000,
-      646
-    ],
     [
       1776769583000,
       756
@@ -234,6 +226,14 @@
     [
       1776931649000,
       684
+    ],
+    [
+      1776935240000,
+      749
+    ],
+    [
+      1776938768000,
+      805
     ]
   ]
 }
