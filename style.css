@@ -67,7 +67,7 @@ body {
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     animation: fadeIn 0.8s ease-out forwards;
 }
 
@@ -79,7 +79,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     width: 100%;
 }
 
@@ -157,6 +157,11 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.dashboard .card {
+    height: 100%;
+    min-height: 120px; /* Asegura un tamaño base consistente */
 }
 
 .card {
@@ -298,6 +303,51 @@ tr:last-child td {
 .status-offline::before {
     background: #ff7b72;
     box-shadow: 0 0 8px var(--status-offline-glow);
+}
+
+.status-partial {
+    background: rgba(210, 153, 34, 0.1);
+    color: #d29922;
+    border: 1px solid rgba(210, 153, 34, 0.2);
+}
+
+.status-partial::before {
+    background: #d29922;
+    box-shadow: 0 0 8px rgba(210, 153, 34, 0.4);
+}
+
+.outage-banner {
+    background: rgba(218, 165, 32, 0.1);
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 20px;
+    border-radius: 12px;
+    display: none;
+    align-items: center;
+    gap: 15px;
+    animation: fadeIn 0.5s ease-out;
+    box-shadow: 0 0 20px rgba(218, 165, 32, 0.1);
+}
+
+.outage-banner.visible {
+    display: flex;
+}
+
+.outage-banner .card-icon {
+    font-size: 1.5rem;
+    background: rgba(218, 165, 32, 0.1);
+    border: 1px solid var(--accent-gold);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.outage-banner span {
+    font-weight: 600;
+    line-height: 1.4;
 }
 
 /* Skeletons */

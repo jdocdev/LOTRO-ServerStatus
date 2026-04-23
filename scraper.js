@@ -1,8 +1,5 @@
 const fs = require('fs');
-
-// Hey! A veces los juegos esconden sus endpoints de estado por ahí.
-// De momento, si alguna vez necesitas hacer scraping real de un HTML (onda una wiki o foro), descomenta cheerio abajo.
-// const cheerio = require('cheerio'); 
+const cheerio = require('cheerio'); 
 
 const OUTPUT_FILE = 'servers.json';
 
@@ -17,54 +14,105 @@ const LOTRO_SERVERS = [
 ];
 
 async function scrapeLotroStatus() {
-    console.log("Iniciando recolección de estado de servidores de LOTRO...");
+    console.log("Iniciando recolección de estado REAL de servidores de LOTRO...");
     
     try {
-        // --- MÉTODO 1: Scraping duro y puro ---
-        // (Si encontramos de dónde sacar el HTML exacto de la comunidad, iría algo así)
-        // const response = await fetch('https://lotrostats.info/api/servers');
-        // const html = await response.text();
-        // const $ = cheerio.load(html);
-        // ... Magia con Cheerio ...
-
-        // --- MÉTODO 2: Mock de datos para ir tirando ---
-        // Como no tenemos un endpoint oficial claro, vamos a simularlo para que las Actions de GitHub no lloren y tengamos algo para mostrar.
+        console.log("Consultando el feed oficial de noticias (Launcher Feed)...");
+        let outageFromNews = false;
+        let newsMessage = "";
+        let outageLink = "";
         
-        console.log("Obteniendo datos de servidores...");
-        
-        const servers = LOTRO_SERVERS.map(name => {
-            // Un 5% de chances de que el server esté caído para darle realismo jaja
-            const isOnline = Math.random() > 0.05;
-            const pops = ["Baja", "Media", "Alta", "Muy Alta"];
-            const pop = isOnline ? pops[Math.floor(Math.random() * pops.length)] : "N/A";
-            return { name: name, status: isOnline ? "Online" : "Offline", pop: pop };
-        });
+        try {
+            const newsRes = await fetch('https://www.lotro.com/en/launcher-feed.xml');
+            const xml = await newsRes.text();
+            const $ = cheerio.load(xml, { xmlMode: true });
+            
+            // Buscamos noticias recientes que hablen de downtime o mantenimiento
+            const items = $('item');
+            for (let i = 0; i < Math.min(items.length, 5); i++) {
+                const item = $(items[i]);
+                const title = item.find('title').text();
+                const desc = item.find('description').text();
+                const link = item.find('link').text();
+                const pubDateStr = item.find('pubDate').text();
+                const pubDate = new Date(pubDateStr);
+                
+                const now = new Date();
+                const diffHours = Math.abs(now - pubDate) / 36e5;
+                
+                const mentionsDowntime = /downtime|maintenance|mantenimiento|caída/i.test(title);
+                const mentionsUnavailable = /unavailable|cerrados|unavaible/i.test(desc);
+                const isUnderMaintenance = /UPDATE: All worlds are unavailable/i.test(desc);
+                
+                if (diffHours < 24 && (mentionsDowntime || mentionsUnavailable || isUnderMaintenance)) {
+                    outageFromNews = true;
+                    newsMessage = title;
+                    outageLink = link;
+                    console.log(`Detectado aviso de mantenimiento reciente en noticias: ${title}`);
+                    break;
+                }
+            }
+        } catch (e) {
+            console.error("No se pudo consultar el feed de noticias:", e.message);
+        }
 
-        console.log("Obteniendo datos de Steam Charts...");
+        console.log("Consultando jugadores en tiempo real (Steam Web API)...");
+        let livePlayers = 0;
+        try {
+            const liveRes = await fetch('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=212500');
+            const liveData = await liveRes.json();
+            livePlayers = liveData.response.player_count || 0;
+            console.log(`Jugadores actuales en Steam: ${livePlayers}`);
+        } catch (e) {
+            console.error("No se pudo obtener el conteo de Steam en vivo:", e.message);
+        }
+
+        console.log("Obteniendo datos históricos para la gráfica...");
         let steamData = [];
         try {
-            // Le pedimos prestados los datos a SteamCharts de nuestro juego (AppID 212500)
             const steamRes = await fetch('https://steamcharts.com/app/212500/chart-data.json');
             const fullSteamData = await steamRes.json();
-            // Nos quedamos solo con las últimas 48 horitas para no saturar la gráfica
             steamData = fullSteamData.slice(-48);
         } catch (e) {
-            console.error("Uff, no se pudo obtener datos de Steam Charts", e.message);
+            console.error("No se pudo obtener datos históricos de Steam:", e.message);
         }
+
+        let finalStatus = "Online";
+        let isOutage = false;
+
+        if (outageFromNews || livePlayers < 150) {
+            finalStatus = "Offline";
+            isOutage = true;
+        } else if (livePlayers < 450) {
+            finalStatus = "Maintenance";
+            isOutage = true;
+        }
+
+        const servers = LOTRO_SERVERS.map(name => {
+            let pop = "N/A";
+            if (finalStatus === "Online") {
+                if (livePlayers > 1600) pop = "Alta";
+                else if (livePlayers > 900) pop = "Media";
+                else pop = "Baja";
+            }
+            return { name: name, status: finalStatus, pop: pop };
+        });
 
         const result = {
             last_updated: new Date().toISOString(),
             servers: servers,
-            steam_data: steamData
+            steam_data: steamData,
+            live_players: livePlayers,
+            outage_message: outageFromNews ? newsMessage : null,
+            outage_link: outageFromNews ? outageLink : null,
+            is_down: isOutage
         };
 
-        // ¡Boom! Escribimos todo al archivo
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2));
-        console.log(`¡Éxito total! Datos guardados en ${OUTPUT_FILE}`);
+        console.log(`¡Datos reales guardados en ${OUTPUT_FILE}!`);
         
     } catch (error) {
-        console.error("Algo explotó muy fuerte durante el scraping:", error.message);
-        // Retornamos error 1 para que GitHub Actions se ponga en rojo y nos avise
+        console.error("Error crítico durante el proceso:", error.message);
         process.exit(1);
     }
 }

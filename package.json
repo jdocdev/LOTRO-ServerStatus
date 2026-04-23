@@ -4,7 +4,8 @@
   "description": "Scraper for LOTRO server status",
   "main": "scraper.js",
   "scripts": {
-    "start": "node scraper.js"
+    "start": "node scraper.js",
+    "dev": "npx serve ."
   },
   "dependencies": {
     "axios": "^1.6.8",

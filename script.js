@@ -28,6 +28,7 @@ const translations = {
         popVeryHigh: "Very High",
         statusOnline: "Online",
         statusOffline: "Offline",
+        statusMaintenance: "Maintenance",
         chartLabel: "Players Online",
         popNA: "N/A",
         footerText: '© jdocdev. Data updated every 10 min. If you like it, dropping a <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">star on GitHub</a> would be awesome ⭐',
@@ -57,7 +58,7 @@ const translations = {
         popVeryHigh: "Muy Alta",
         statusOnline: "En línea",
         statusOffline: "Desconectado",
-        statusOffline: "Desconectado",
+        statusMaintenance: "Mantenimiento",
         chartLabel: "Jugadores Conectados",
         popNA: "N/A",
         footerText: '© jdocdev. Datos actualizados cada 10 min. Si te sirve de algo, se agradece una <a href="https://github.com/" target="_blank" style="color:var(--accent-gold);text-decoration:none;">estrellita en GitHub</a> de forma tranki ⭐',
@@ -203,16 +204,47 @@ function mapPopulation(popText) {
 }
 
 function renderServers(servers) {
-    // Aquí es donde sucede la magia: pintamos la tabla de servidores en la pantalla
     const tbody = document.getElementById('server-body');
+    const banner = document.getElementById('outage-banner');
+    const bannerText = document.getElementById('outage-text');
     let onlineCount = 0;
 
+    // Mostrar banner de alerta si hay mensaje oficial o sospecha de caída
+    if (globalServerData && (globalServerData.is_down || globalServerData.outage_message)) {
+        banner.classList.add('visible');
+        const msg = globalServerData.outage_message || "Suspected Maintenance or Outage";
+        
+        if (globalServerData.outage_link) {
+            banner.style.cursor = 'pointer';
+            banner.onclick = () => window.open(globalServerData.outage_link, '_blank');
+            bannerText.innerHTML = `${msg} <small style="display:block; opacity: 0.8; font-weight: normal; margin-top: 4px;">Click to read official post ↗</small>`;
+        } else {
+            banner.style.cursor = 'default';
+            banner.onclick = null;
+            bannerText.innerText = msg;
+        }
+    } else {
+        banner.classList.remove('visible');
+    }
+
     tbody.innerHTML = servers.map((srv, index) => {
-        const isOnline = srv.status.toLowerCase() === 'online' || srv.status.toLowerCase() === 'en línea';
+        const s = srv.status.toLowerCase();
+        const isOnline = s === 'online' || s === 'en línea';
+        const isMaintenance = s === 'maintenance' || s === 'mantenimiento';
+        
         if (isOnline) onlineCount++;
         
-        const badgeClass = isOnline ? 'status-online' : 'status-offline';
-        const translatedStatus = isOnline ? t('statusOnline') : t('statusOffline');
+        let badgeClass = 'status-offline';
+        let translatedStatus = t('statusOffline');
+        
+        if (isOnline) {
+            badgeClass = 'status-online';
+            translatedStatus = t('statusOnline');
+        } else if (isMaintenance) {
+            badgeClass = 'status-partial';
+            translatedStatus = t('statusMaintenance');
+        }
+        
         const translatedPop = mapPopulation(srv.pop);
         
         return `
@@ -224,7 +256,7 @@ function renderServers(servers) {
         `;
     }).join('');
 
-    updateGlobalStatus(onlineCount, servers.length);
+    updateGlobalStatus(onlineCount, servers.length, false, globalServerData?.is_down);
 }
 
 async function loadServerStatus() {
@@ -250,15 +282,15 @@ async function loadServerStatus() {
     }
 }
 
-function updateGlobalStatus(online, total, isError = false) {
+function updateGlobalStatus(online, total, isError = false, isDown = false) {
     const globalText = document.getElementById('global-text');
     const globalIndicator = document.querySelector('.global-indicator');
 
-    if (isError) {
-        globalText.innerText = t('offlineSystems');
-        globalText.style.color = "var(--status-offline)";
-        globalIndicator.style.background = "var(--status-offline)";
-        globalIndicator.style.boxShadow = "0 0 10px var(--status-offline-glow)";
+    if (isError || isDown) {
+        globalText.innerText = isDown ? t('allDown') : t('offlineSystems');
+        globalText.style.color = isDown ? "var(--accent-gold)" : "var(--status-offline)";
+        globalIndicator.style.background = isDown ? "var(--accent-gold)" : "var(--status-offline)";
+        globalIndicator.style.boxShadow = isDown ? "0 0 15px var(--accent-gold-glow)" : "0 0 10px var(--status-offline-glow)";
         return;
     }
 
@@ -282,7 +314,6 @@ function updateGlobalStatus(online, total, isError = false) {
 
 function calculatePing() {
     const start = Date.now();
-    const pingDisplay = document.getElementById('my-ping');
     
     const bypassCache = `?t=${new Date().getTime()}`;
 
@@ -293,13 +324,20 @@ function calculatePing() {
         })
         .catch(() => {
             const delta = Date.now() - start;
-            displayPing(delta);
+            displayPing(delta, true);
         });
 }
 
-function displayPing(ms) {
+function displayPing(ms, isError = false) {
     const pingDisplay = document.getElementById('my-ping');
     pingDisplay.classList.remove('loading');
+    
+    if (isError) {
+        pingDisplay.innerText = "Error";
+        pingDisplay.style.color = "#ff7b72";
+        return;
+    }
+
     pingDisplay.innerText = `${ms} ms`;
 
     if (ms < 150) {
