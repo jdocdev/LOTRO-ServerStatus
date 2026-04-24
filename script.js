@@ -302,7 +302,10 @@ function renderServers(servers) {
         
         return `
             <tr style="animation: fadeIn 0.5s ease-out ${index * 0.05}s forwards; opacity: 0;">
-                <td style="font-weight: 600;">${srv.name}</td>
+                <td style="font-weight: 600;">
+                    ${srv.name}
+                    ${srv.type === 'Legendary' ? '<span class="vip-badge">VIP</span>' : ''}
+                </td>
                 <td><span class="status-badge ${badgeClass}">${translatedStatus}</span></td>
                 <td style="color: var(--text-secondary);">${translatedPop}</td>
             </tr>

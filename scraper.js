@@ -114,6 +114,7 @@ async function scrapeLotroStatus() {
         const servers = LOTRO_SERVERS.map(name => {
             let pop = "N/A";
             let srvStatus = finalStatus;
+            let type = ["Angmar", "Mordor"].includes(name) ? "Legendary" : "Standard";
 
             // Heurística: Arkenstone, Evernight y Gladden son los más poblados y suelen abrir primero
             if (finalStatus === "Maintenance") {
@@ -127,7 +128,7 @@ async function scrapeLotroStatus() {
                 else if (livePlayers > 800) pop = "Media";
                 else pop = "Baja";
             }
-            return { name: name, status: srvStatus, pop: pop };
+            return { name: name, status: srvStatus, pop: pop, type: type };
         });
 
         const result = {
