@@ -9,6 +9,11 @@ const translations = {
         subtitle: "Real-time monitoring of Middle-earth",
         latency: "Latency to NJ (Estimated)",
         calculating: "Calculating...",
+        activePlayers: "Active Population",
+        steamLabel: "Steam Players",
+        launcherLabel: "Launcher (Est.)",
+        estimatedTotal: "Total Estimated",
+        estNote: "* Based on 3.2x Steam multiplier",
         globalStatus: "Global Status",
         verifying: "Verifying...",
         steamPlayers: "Steam Players (Last 48 hrs)",
@@ -39,6 +44,11 @@ const translations = {
         subtitle: "Monitoreo en tiempo real de la Tierra Media",
         latency: "Latencia a NJ (Estimada)",
         calculating: "Calculando...",
+        activePlayers: "Población Activa",
+        steamLabel: "Jugadores Steam",
+        launcherLabel: "Launcher (Est.)",
+        estimatedTotal: "Total Estimado",
+        estNote: "* Basado en un factor x3.2 de Steam",
         globalStatus: "Estado Global",
         verifying: "Verificando...",
         steamPlayers: "Jugadores en Steam (Últimas 48 hrs)",
@@ -69,6 +79,11 @@ const translations = {
         subtitle: "Surveillance en temps réel de la Terre du Milieu",
         latency: "Latence vers NJ (Estimée)",
         calculating: "Calcul...",
+        activePlayers: "Population Active",
+        steamLabel: "Joueurs Steam",
+        launcherLabel: "Launcher (Est.)",
+        estimatedTotal: "Total Estimé",
+        estNote: "* Basé sur un multiplicateur Steam de 3,2x",
         globalStatus: "État Global",
         verifying: "Vérification...",
         steamPlayers: "Joueurs sur Steam (48 dernières heures)",
@@ -99,6 +114,11 @@ const translations = {
         subtitle: "Echtzeit-Überwachung von Mittelerde",
         latency: "Latenz nach NJ (Geschätzt)",
         calculating: "Berechnung...",
+        activePlayers: "Aktive Bevölkerung",
+        steamLabel: "Steam-Spieler",
+        launcherLabel: "Launcher (Est.)",
+        estimatedTotal: "Gesamt (Geschätzt)",
+        estNote: "* Basierend auf 3,2x Steam-Multiplikator",
         globalStatus: "Globaler Status",
         verifying: "Überprüfung...",
         steamPlayers: "Steam-Spieler (Letzte 48 Std.)",
@@ -326,6 +346,39 @@ async function loadServerStatus() {
         
         renderServers(globalServerData.servers);
 
+        // --- ACTUALIZAR POBLACIÓN ESTIMADA ---
+        const livePlayers = globalServerData.live_players || 0;
+        const multiplier = 3.2;
+        const estTotal = Math.round(livePlayers * multiplier);
+        const estLauncher = estTotal - livePlayers;
+
+        const popCount = document.getElementById('pop-count');
+        const popDetails = document.getElementById('pop-details');
+
+        if (popCount) {
+            popCount.innerText = estTotal.toLocaleString();
+            popCount.classList.remove('loading');
+        }
+
+        if (popDetails) {
+            popDetails.style.display = 'flex';
+            popDetails.innerHTML = `
+                <div class="pop-item">
+                    <span class="pop-label">${t('steamLabel')}</span>
+                    <span class="pop-value">${livePlayers.toLocaleString()}</span>
+                </div>
+                <div class="pop-item">
+                    <span class="pop-label">${t('launcherLabel')}</span>
+                    <span class="pop-value">${estLauncher.toLocaleString()}</span>
+                </div>
+                <div class="pop-item" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 5px; padding-top: 5px;">
+                    <span class="pop-label" style="color: var(--accent-gold);">${t('estimatedTotal')}</span>
+                    <span class="pop-value pop-total-est">${estTotal.toLocaleString()}</span>
+                </div>
+                <div class="pop-note">${t('estNote')}</div>
+            `;
+        }
+
         if (globalServerData.steam_data && globalServerData.steam_data.length > 0) {
             renderChart(globalServerData.steam_data);
         }
@@ -344,9 +397,10 @@ function updateGlobalStatus(online, total, isError = false, isDown = false) {
 
     if (isError || isDown) {
         globalText.innerText = isDown ? t('allDown') : t('offlineSystems');
-        globalText.style.color = isDown ? "var(--accent-gold)" : "var(--status-offline)";
-        globalIndicator.style.background = isDown ? "var(--accent-gold)" : "var(--status-offline)";
-        globalIndicator.style.boxShadow = isDown ? "0 0 15px var(--accent-gold-glow)" : "0 0 10px var(--status-offline-glow)";
+        const color = isDown ? "var(--accent-gold)" : "var(--status-offline)";
+        globalText.style.color = color;
+        globalIndicator.style.background = color;
+        globalIndicator.style.color = color;
         return;
     }
 
@@ -354,17 +408,17 @@ function updateGlobalStatus(online, total, isError = false, isDown = false) {
         globalText.innerText = t('allOnline');
         globalText.style.color = "#3fb950";
         globalIndicator.style.background = "#3fb950";
-        globalIndicator.style.boxShadow = "0 0 10px var(--status-online-glow)";
+        globalIndicator.style.color = "#3fb950";
     } else if (online > 0) {
         globalText.innerText = t('partialIssues');
         globalText.style.color = "#d29922";
         globalIndicator.style.background = "#d29922";
-        globalIndicator.style.boxShadow = "0 0 10px rgba(210, 153, 34, 0.4)";
+        globalIndicator.style.color = "#d29922";
     } else {
         globalText.innerText = t('allDown');
-        globalText.style.color = "#ff7b72";
-        globalIndicator.style.background = "#ff7b72";
-        globalIndicator.style.boxShadow = "0 0 10px var(--status-offline-glow)";
+        globalText.style.color = "var(--status-offline)";
+        globalIndicator.style.background = "var(--status-offline)";
+        globalIndicator.style.color = "var(--status-offline)";
     }
 }
 

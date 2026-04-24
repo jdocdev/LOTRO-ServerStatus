@@ -149,77 +149,83 @@ h1 {
 /* Dashboard Cards */
 .dashboard {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-}
-
-.dash-col {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.dashboard .card {
-    height: 100%;
-    min-height: 120px; /* Asegura un tamaño base consistente */
 }
 
 .card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 20px;
+    border-radius: 16px;
+    padding: 35px 25px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 15px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    height: 100%;
 }
 
 .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+    border-color: var(--accent-gold);
 }
 
 .card-icon {
-    font-size: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-content {
+    width: 100%;
 }
 
 .card-content h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-secondary);
     font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 5px;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.ping-value {
-    font-size: 1.5rem;
-    font-weight: 600;
-    font-family: monospace;
-}
-
-.ping-value.loading {
-    color: var(--text-secondary);
-    animation: pulse 1.5s infinite;
+.ping-value, #pop-count, #global-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
 .global-status {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
+    justify-content: center;
+    gap: 12px;
 }
 
 .status-indicator {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    display: inline-block;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px currentColor;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
 }
 
 /* Table Design */
@@ -398,6 +404,43 @@ footer {
     text-transform: uppercase;
     vertical-align: middle;
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.pop-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pop-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.pop-label {
+    color: var(--text-secondary);
+}
+
+.pop-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.pop-total-est {
+    color: var(--accent-gold) !important;
+}
+
+.pop-note {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    font-style: italic;
+    opacity: 0.6;
 }
 .github-link {
     display: flex;
