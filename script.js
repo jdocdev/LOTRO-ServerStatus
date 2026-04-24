@@ -240,6 +240,11 @@ async function checkLiveStatus() {
 
         console.log(`Verificación en vivo: Conexión OK, Jugadores: ${livePlayers}`);
 
+        // 3. Forzar actualización de población con el dato hiper fresquito
+        if (livePlayers > 0) {
+            renderPopulation(livePlayers);
+        }
+
         // LÓGICA DE OVERRIDE: Si en Steam hay gente (> 600) pero el JSON aún dice "Offline" o "Maintenance"
         const jsonIsOutage = globalServerData && globalServerData.is_down;
         
@@ -335,6 +340,39 @@ function renderServers(servers) {
     updateGlobalStatus(onlineCount, servers.length, false, globalServerData?.is_down);
 }
 
+function renderPopulation(livePlayers) {
+    const multiplier = 3.2;
+    const estTotal = Math.round(livePlayers * multiplier);
+    const estLauncher = estTotal - livePlayers;
+
+    const popCount = document.getElementById('pop-count');
+    const popDetails = document.getElementById('pop-details');
+
+    if (popCount) {
+        popCount.innerText = estTotal.toLocaleString();
+        popCount.classList.remove('loading');
+    }
+
+    if (popDetails) {
+        popDetails.style.display = 'flex';
+        popDetails.innerHTML = `
+            <div class="pop-item">
+                <span class="pop-label">${t('steamLabel')}</span>
+                <span class="pop-value">${livePlayers.toLocaleString()}</span>
+            </div>
+            <div class="pop-item">
+                <span class="pop-label">${t('launcherLabel')}</span>
+                <span class="pop-value">${estLauncher.toLocaleString()}</span>
+            </div>
+            <div class="pop-item" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 5px; padding-top: 5px;">
+                <span class="pop-label" style="color: var(--accent-gold);">${t('estimatedTotal')}</span>
+                <span class="pop-value pop-total-est">${estTotal.toLocaleString()}</span>
+            </div>
+            <div class="pop-note">${t('estNote')}</div>
+        `;
+    }
+}
+
 async function loadServerStatus() {
     try {
         // Le damos un pequeño respiro artificial (600ms) para que la animación se aprecie un poco
@@ -346,38 +384,9 @@ async function loadServerStatus() {
         
         renderServers(globalServerData.servers);
 
-        // --- ACTUALIZAR POBLACIÓN ESTIMADA ---
+        // --- ACTUALIZAR POBLACIÓN ESTIMADA INICIAL ---
         const livePlayers = globalServerData.live_players || 0;
-        const multiplier = 3.2;
-        const estTotal = Math.round(livePlayers * multiplier);
-        const estLauncher = estTotal - livePlayers;
-
-        const popCount = document.getElementById('pop-count');
-        const popDetails = document.getElementById('pop-details');
-
-        if (popCount) {
-            popCount.innerText = estTotal.toLocaleString();
-            popCount.classList.remove('loading');
-        }
-
-        if (popDetails) {
-            popDetails.style.display = 'flex';
-            popDetails.innerHTML = `
-                <div class="pop-item">
-                    <span class="pop-label">${t('steamLabel')}</span>
-                    <span class="pop-value">${livePlayers.toLocaleString()}</span>
-                </div>
-                <div class="pop-item">
-                    <span class="pop-label">${t('launcherLabel')}</span>
-                    <span class="pop-value">${estLauncher.toLocaleString()}</span>
-                </div>
-                <div class="pop-item" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 5px; padding-top: 5px;">
-                    <span class="pop-label" style="color: var(--accent-gold);">${t('estimatedTotal')}</span>
-                    <span class="pop-value pop-total-est">${estTotal.toLocaleString()}</span>
-                </div>
-                <div class="pop-note">${t('estNote')}</div>
-            `;
-        }
+        renderPopulation(livePlayers);
 
         if (globalServerData.steam_data && globalServerData.steam_data.length > 0) {
             renderChart(globalServerData.steam_data);
