@@ -188,9 +188,62 @@ async function init() {
     // Inicializar idioma
     changeLang(currentLang);
 
-    // Calculamos ping en paralelo mientras cargan los datos
+    // Calculamos ping y estado en vivo en paralelo
     calculatePing();
+    
+    // Traemos los datos del JSON (que pueden estar desactualizados por el delay de GitHub)
     await loadServerStatus();
+
+    // ¡NUEVO! Verificación en tiempo real desde el navegador del usuario para saltarse el delay del bot
+    checkLiveStatus();
+}
+
+async function checkLiveStatus() {
+    const banner = document.getElementById('outage-banner');
+    const bannerText = document.getElementById('outage-text');
+    const globalText = document.getElementById('global-text');
+    const globalIndicator = document.querySelector('.global-indicator');
+
+    try {
+        console.log("Iniciando verificación en vivo desde el navegador...");
+        
+        // 1. Verificamos conectividad básica con el servidor de login de LOTRO (favicon trick)
+        const connectivityCheck = fetch('https://gls.lotro.com/favicon.ico', { mode: 'no-cors', cache: 'no-store' });
+        
+        // 2. Obtenemos jugadores en Steam usando un proxy CORS público (seguro y sin tokens)
+        const steamProxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=212500')}&t=${Date.now()}`;
+        const steamCheck = fetch(steamProxyUrl).then(r => r.json());
+
+        const [conn, steamResponse] = await Promise.all([connectivityCheck, steamCheck]);
+        const liveData = JSON.parse(steamResponse.contents);
+        const livePlayers = liveData.response.player_count || 0;
+
+        console.log(`Verificación en vivo: Conexión OK, Jugadores: ${livePlayers}`);
+
+        // LÓGICA DE OVERRIDE: Si en Steam hay gente (> 600) pero el JSON aún dice "Offline" o "Maintenance"
+        const jsonIsOutage = globalServerData && globalServerData.is_down;
+        
+        if (jsonIsOutage && livePlayers > 600) {
+            // ¡Detectamos que los servidores han vuelto antes que el bot de GitHub!
+            banner.classList.add('visible');
+            banner.style.background = "rgba(63, 185, 80, 0.1)";
+            banner.style.borderColor = "#3fb950";
+            banner.style.color = "#3fb950";
+            banner.querySelector('.card-icon').innerText = "✅";
+            banner.querySelector('.card-icon').style.borderColor = "#3fb950";
+            
+            bannerText.innerHTML = `<strong>Detección en Vivo:</strong> Se detectan ${livePlayers} jugadores activos. ¡Es muy probable que los servidores ya estén disponibles! <small style="display:block; opacity: 0.8;">(El bot de GitHub se actualizará en breve)</small>`;
+            
+            // Actualizar el indicador global también
+            globalText.innerText = "Reapertura Detectada";
+            globalText.style.color = "#3fb950";
+            globalIndicator.style.background = "#3fb950";
+            globalIndicator.style.boxShadow = "0 0 15px var(--status-online-glow)";
+        }
+
+    } catch (e) {
+        console.warn("La verificación en vivo falló (esto es normal si el usuario tiene bloqueadores de rastreo):", e.message);
+    }
 }
 
 function mapPopulation(popText) {

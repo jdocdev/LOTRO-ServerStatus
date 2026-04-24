@@ -1,87 +1,83 @@
 {
-  "last_updated": "2026-04-24T00:02:51.097Z",
+  "last_updated": "2026-04-24T00:35:51.791Z",
   "servers": [
     {
       "name": "Arkenstone",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Brandywine",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Crickhollow",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Gladden",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Landroval",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Belegaer",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Evernight",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Gwaihir",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Laurelin",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Sirannon",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Angmar",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Mordor",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Glamdring",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Sting",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     },
     {
       "name": "Orcrist",
-      "status": "Maintenance",
-      "pop": "N/A"
+      "status": "Online",
+      "pop": "Baja"
     }
   ],
   "steam_data": [
-    [
-      1776816503000,
-      811
-    ],
     [
       1776820086000,
       840
@@ -269,10 +265,14 @@
     [
       1776985593000,
       316
+    ],
+    [
+      1776989208000,
+      748
     ]
   ],
-  "live_players": 510,
+  "live_players": 715,
   "outage_message": null,
   "outage_link": null,
-  "is_down": true
+  "is_down": false
 }

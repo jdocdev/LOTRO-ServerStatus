@@ -83,38 +83,48 @@ async function scrapeLotroStatus() {
             console.error("No se pudo obtener datos históricos de Steam:", e.message);
         }
 
+        // --- LÓGICA DE DECISIÓN FINAL ---
         let finalStatus = "Online";
         let isOutage = false;
 
-        if (outageFromNews && livePlayers < 500) {
-            finalStatus = "Offline";
-            isOutage = true;
-        } else if (livePlayers < 1200) {
-            // Si hay poca gente o estamos en proceso de reapertura
-            finalStatus = "Maintenance";
-            isOutage = true;
-        }
-
-        // Si ya hay más de 1200 personas, es muy probable que la mayoría de mundos estén UP
-        if (livePlayers > 1500) {
-            finalStatus = "Online";
-            isOutage = false;
+        // Si hay noticias de mantenimiento activas:
+        if (outageFromNews) {
+            if (livePlayers < 400) {
+                finalStatus = "Offline";
+                isOutage = true;
+            } else if (livePlayers < 800) {
+                finalStatus = "Maintenance";
+                isOutage = true;
+            } else {
+                // Si hay más de 800 jugadores a pesar de la noticia, es que ya abrieron
+                finalStatus = "Online";
+                isOutage = false;
+            }
+        } else {
+            // Si NO hay noticias, nos guiamos solo por el conteo de Steam para detectar caídas súbitas
+            if (livePlayers < 150) {
+                finalStatus = "Offline";
+                isOutage = true;
+            } else if (livePlayers < 400) {
+                finalStatus = "Maintenance";
+                isOutage = true;
+            }
         }
 
         const servers = LOTRO_SERVERS.map(name => {
             let pop = "N/A";
             let srvStatus = finalStatus;
 
-            // Heurística: Algunos servidores suelen abrir antes que otros (Arkenstone es de los primeros)
+            // Heurística: Arkenstone, Evernight y Gladden son los más poblados y suelen abrir primero
             if (finalStatus === "Maintenance") {
-                if (livePlayers > 800) {
+                if (livePlayers > 450) {
                     if (["Arkenstone", "Evernight", "Gladden"].includes(name)) srvStatus = "Online";
                 }
             }
 
             if (srvStatus === "Online") {
-                if (livePlayers > 2000) pop = "Alta";
-                else if (livePlayers > 1200) pop = "Media";
+                if (livePlayers > 1500) pop = "Alta";
+                else if (livePlayers > 800) pop = "Media";
                 else pop = "Baja";
             }
             return { name: name, status: srvStatus, pop: pop };
