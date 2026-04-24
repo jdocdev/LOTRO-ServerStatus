@@ -6,11 +6,11 @@ const OUTPUT_FILE = 'servers.json';
 // Acá van los mundos oficiales (los nuevos de 64 bits que metieron hace poco)
 const LOTRO_SERVERS = [
     // NA Servers
-    "Glamdring", "Sting", "Peregrin",
+    "Arkenstone", "Brandywine", "Crickhollow", "Gladden", "Landroval",
     // EU Servers
-    "Orcrist", "Grond", "Meriadoc",
-    // VIP Legendary Servers
-    "Angmar", "Mordor"
+    "Belegaer", "Evernight", "Gwaihir", "Laurelin", "Sirannon",
+    // New 64-bit / Legendary Servers
+    "Angmar", "Mordor", "Glamdring", "Sting", "Orcrist"
 ];
 
 async function scrapeLotroStatus() {
@@ -41,15 +41,21 @@ async function scrapeLotroStatus() {
                 const diffHours = Math.abs(now - pubDate) / 36e5;
                 
                 const mentionsDowntime = /downtime|maintenance|mantenimiento|caída/i.test(title);
-                const mentionsUnavailable = /unavailable|cerrados|unavaible/i.test(desc);
-                const isUnderMaintenance = /UPDATE: All worlds are unavailable/i.test(desc);
+                const mentionsUnavailable = /unavailable|cerrados/i.test(desc);
+                const mentionsReopened = /reopened|reabierto|disponible/i.test(desc);
                 
-                if (diffHours < 24 && (mentionsDowntime || mentionsUnavailable || isUnderMaintenance)) {
-                    outageFromNews = true;
-                    newsMessage = title;
-                    outageLink = link;
-                    console.log(`Detectado aviso de mantenimiento reciente en noticias: ${title}`);
-                    break;
+                if (diffHours < 24) {
+                    if (mentionsDowntime || mentionsUnavailable) {
+                        outageFromNews = true;
+                        newsMessage = title;
+                        outageLink = link;
+                        
+                        // Si mencionan que ya están reabriendo, no marcamos como caída total
+                        if (mentionsReopened) {
+                            outageFromNews = false;
+                            console.log("Detectado que los servidores están reabriendo.");
+                        }
+                    }
                 }
             }
         } catch (e) {
@@ -80,22 +86,38 @@ async function scrapeLotroStatus() {
         let finalStatus = "Online";
         let isOutage = false;
 
-        if (outageFromNews || livePlayers < 150) {
+        if (outageFromNews && livePlayers < 500) {
             finalStatus = "Offline";
             isOutage = true;
-        } else if (livePlayers < 450) {
+        } else if (livePlayers < 1200) {
+            // Si hay poca gente o estamos en proceso de reapertura
             finalStatus = "Maintenance";
             isOutage = true;
         }
 
+        // Si ya hay más de 1200 personas, es muy probable que la mayoría de mundos estén UP
+        if (livePlayers > 1500) {
+            finalStatus = "Online";
+            isOutage = false;
+        }
+
         const servers = LOTRO_SERVERS.map(name => {
             let pop = "N/A";
-            if (finalStatus === "Online") {
-                if (livePlayers > 1600) pop = "Alta";
-                else if (livePlayers > 900) pop = "Media";
+            let srvStatus = finalStatus;
+
+            // Heurística: Algunos servidores suelen abrir antes que otros (Arkenstone es de los primeros)
+            if (finalStatus === "Maintenance") {
+                if (livePlayers > 800) {
+                    if (["Arkenstone", "Evernight", "Gladden"].includes(name)) srvStatus = "Online";
+                }
+            }
+
+            if (srvStatus === "Online") {
+                if (livePlayers > 2000) pop = "Alta";
+                else if (livePlayers > 1200) pop = "Media";
                 else pop = "Baja";
             }
-            return { name: name, status: finalStatus, pop: pop };
+            return { name: name, status: srvStatus, pop: pop };
         });
 
         const result = {
