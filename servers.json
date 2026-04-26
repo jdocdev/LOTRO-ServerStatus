@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26T16:25:04.989Z",
+  "last_updated": "2026-04-26T17:07:31.913Z",
   "servers": [
     {
       "name": "Arkenstone",
@@ -93,10 +93,6 @@
     }
   ],
   "steam_data": [
-    [
-      1777046833000,
-      1393
-    ],
     [
       1777050433000,
       1475
@@ -284,9 +280,13 @@
     [
       1777216029000,
       1828
+    ],
+    [
+      1777219631000,
+      1888
     ]
   ],
-  "live_players": 1865,
+  "live_players": 1891,
   "outage_message": null,
   "outage_link": null,
   "is_down": false
