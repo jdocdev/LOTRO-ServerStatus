@@ -1,106 +1,98 @@
 {
-  "last_updated": "2026-04-28T20:10:52.897Z",
+  "last_updated": "2026-04-28T21:31:25.687Z",
   "servers": [
     {
       "name": "Arkenstone",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Brandywine",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Crickhollow",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gladden",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Landroval",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Belegaer",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Evernight",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gwaihir",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Laurelin",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sirannon",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Angmar",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Mordor",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Glamdring",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sting",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Orcrist",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     }
   ],
   "steam_data": [
-    [
-      1777234012000,
-      1981
-    ],
-    [
-      1777237600000,
-      1719
-    ],
     [
       1777241218000,
       1408
@@ -284,10 +276,18 @@
     [
       1777403203000,
       1598
+    ],
+    [
+      1777406784000,
+      1478
+    ],
+    [
+      1777410364000,
+      1264
     ]
   ],
-  "live_players": 1554,
-  "outage_message": null,
-  "outage_link": null,
+  "live_players": 1264,
+  "outage_message": "Downtime Notice: Wednesday, April 29th 9:00 AM - 1:00 PM Eastern (-4 GMT)",
+  "outage_link": "https://www.lotro.com/news/lotro-downtime-042926-en?locale=en_US",
   "is_down": false
 }
