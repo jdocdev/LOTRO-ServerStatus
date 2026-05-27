@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-26T23:19:38.740Z",
+  "last_updated": "2026-05-27T01:29:46.143Z",
   "servers": [
     {
       "name": "Arkenstone",
@@ -93,18 +93,6 @@
     }
   ],
   "steam_data": [
-    [
-      1779664030000,
-      1089
-    ],
-    [
-      1779667577000,
-      990
-    ],
-    [
-      1779671234000,
-      899
-    ],
     [
       1779674782000,
       871
@@ -284,9 +272,21 @@
     [
       1779833170000,
       976
+    ],
+    [
+      1779836790000,
+      878
+    ],
+    [
+      1779840357000,
+      830
+    ],
+    [
+      1779843984000,
+      819
     ]
   ],
-  "live_players": 900,
+  "live_players": 819,
   "outage_message": "Downtime Notice: Wednesday, May 27th 9:00 AM - 1:00 PM Eastern (-4 GMT)",
   "outage_link": "https://www.lotro.com/news/lotro-downtime-052726-en?locale=en_US",
   "is_down": false
