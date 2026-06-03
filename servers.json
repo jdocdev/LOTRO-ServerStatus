@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-03T05:19:28.097Z",
+  "last_updated": "2026-06-03T10:12:13.626Z",
   "servers": [
     {
       "name": "Arkenstone",
@@ -9,14 +9,14 @@
     },
     {
       "name": "Brandywine",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Crickhollow",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
@@ -27,14 +27,14 @@
     },
     {
       "name": "Landroval",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Belegaer",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
@@ -45,74 +45,54 @@
     },
     {
       "name": "Gwaihir",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Laurelin",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Sirannon",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Angmar",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Legendary"
     },
     {
       "name": "Mordor",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Legendary"
     },
     {
       "name": "Glamdring",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Sting",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Orcrist",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     }
   ],
   "steam_data": [
-    [
-      1780290331000,
-      561
-    ],
-    [
-      1780293942000,
-      510
-    ],
-    [
-      1780297563000,
-      575
-    ],
-    [
-      1780301207000,
-      630
-    ],
-    [
-      1780304891000,
-      662
-    ],
     [
       1780308378000,
       702
@@ -284,10 +264,30 @@
     [
       1780459630000,
       609
+    ],
+    [
+      1780463134000,
+      539
+    ],
+    [
+      1780466826000,
+      507
+    ],
+    [
+      1780470421000,
+      573
+    ],
+    [
+      1780473936000,
+      577
+    ],
+    [
+      1780477567000,
+      632
     ]
   ],
-  "live_players": 546,
-  "outage_message": "Downtime Notice: Wednesday, June 3rd 9:00 AM - 1:00 PM Eastern (-4 GMT)",
-  "outage_link": "https://www.lotro.com/news/lotro-downtime-060326-en?locale=en_US",
-  "is_down": true
+  "live_players": 635,
+  "outage_message": null,
+  "outage_link": null,
+  "is_down": false
 }
