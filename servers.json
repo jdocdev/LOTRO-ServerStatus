@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-07-01T10:25:59.010Z",
+  "last_updated": "2026-07-01T13:15:47.478Z",
   "servers": [
     {
       "name": "Arkenstone",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -21,8 +21,8 @@
     },
     {
       "name": "Gladden",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -39,8 +39,8 @@
     },
     {
       "name": "Evernight",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -93,18 +93,6 @@
     }
   ],
   "steam_data": [
-    [
-      1782727664000,
-      639
-    ],
-    [
-      1782731382000,
-      671
-    ],
-    [
-      1782734979000,
-      724
-    ],
     [
       1782738559000,
       797
@@ -284,10 +272,22 @@
     [
       1782896956000,
       539
+    ],
+    [
+      1782900490000,
+      602
+    ],
+    [
+      1782904165000,
+      637
+    ],
+    [
+      1782907833000,
+      656
     ]
   ],
-  "live_players": 558,
-  "outage_message": "Downtime Notice: Wednesday, July 1st 9:00 AM - 1:00 PM Eastern (-4 GMT)",
-  "outage_link": "https://www.lotro.com/news/lotro-downtime-070126-en?locale=en_US",
+  "live_players": 167,
+  "outage_message": null,
+  "outage_link": null,
   "is_down": true
 }
