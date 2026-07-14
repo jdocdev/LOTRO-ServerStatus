@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-14T22:37:51.611Z",
+  "last_updated": "2026-07-14T23:29:51.098Z",
   "servers": [
     {
       "name": "Arkenstone",
@@ -286,7 +286,7 @@
       752
     ]
   ],
-  "live_players": 752,
+  "live_players": 695,
   "outage_message": "Downtime Notice: Wednesday, July 15th 9:00 AM - 1:00 PM Eastern (-4 GMT)",
   "outage_link": "https://www.lotro.com/news/lotro-downtime-071526-en?locale=en_US",
   "is_down": true
