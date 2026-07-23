@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-23T09:31:43.785Z",
+  "last_updated": "2026-07-23T11:28:27.577Z",
   "servers": [
     {
       "name": "Arkenstone",
@@ -93,10 +93,6 @@
     }
   ],
   "steam_data": [
-    [
-      1784628577000,
-      637
-    ],
     [
       1784632176000,
       691
@@ -284,9 +280,13 @@
     [
       1784797723000,
       666
+    ],
+    [
+      1784801260000,
+      731
     ]
   ],
-  "live_players": 666,
+  "live_players": 770,
   "outage_message": "Glamdring and Orcrist Downtime: Thursday, July 23rd 9:00 AM - 11:00 AM Eastern (-4 GMT)",
   "outage_link": "https://www.lotro.com/news/lotro-downtime-072326-en?locale=en_US",
   "is_down": true
