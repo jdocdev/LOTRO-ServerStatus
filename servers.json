@@ -1,102 +1,98 @@
 {
-  "last_updated": "2026-08-12T13:38:18.774Z",
+  "last_updated": "2026-08-12T14:41:20.960Z",
   "servers": [
     {
       "name": "Arkenstone",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Brandywine",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Crickhollow",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Gladden",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Landroval",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Belegaer",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Evernight",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Gwaihir",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Laurelin",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Sirannon",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Angmar",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Legendary"
     },
     {
       "name": "Mordor",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Legendary"
     },
     {
       "name": "Glamdring",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Sting",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     },
     {
       "name": "Orcrist",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Baja",
       "type": "Standard"
     }
   ],
   "steam_data": [
-    [
-      1786370957000,
-      1032
-    ],
     [
       1786374559000,
       1089
@@ -284,10 +280,14 @@
     [
       1786540106000,
       177
+    ],
+    [
+      1786543771000,
+      266
     ]
   ],
-  "live_players": 164,
+  "live_players": 407,
   "outage_message": null,
   "outage_link": null,
-  "is_down": true
+  "is_down": false
 }
