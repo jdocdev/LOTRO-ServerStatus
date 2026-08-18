@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-18T13:51:53.974Z",
+  "last_updated": "2026-08-18T14:25:41.527Z",
   "servers": [
     {
       "name": "Arkenstone",
@@ -286,7 +286,7 @@
       1090
     ]
   ],
-  "live_players": 1113,
+  "live_players": 1143,
   "outage_message": null,
   "outage_link": null,
   "is_down": false
