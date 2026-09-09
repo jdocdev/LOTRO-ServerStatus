@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-09-09T09:40:40.326Z",
+  "last_updated": "2026-09-09T13:56:38.751Z",
   "servers": [
     {
       "name": "Arkenstone",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -21,8 +21,8 @@
     },
     {
       "name": "Gladden",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -39,8 +39,8 @@
     },
     {
       "name": "Evernight",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -93,22 +93,6 @@
     }
   ],
   "steam_data": [
-    [
-      1788775561000,
-      816
-    ],
-    [
-      1788779182000,
-      844
-    ],
-    [
-      1788782779000,
-      956
-    ],
-    [
-      1788786563000,
-      1095
-    ],
     [
       1788790067000,
       1185
@@ -284,10 +268,26 @@
     [
       1788944598000,
       716
+    ],
+    [
+      1788948365000,
+      693
+    ],
+    [
+      1788952004000,
+      736
+    ],
+    [
+      1788955673000,
+      814
+    ],
+    [
+      1788959403000,
+      188
     ]
   ],
-  "live_players": 724,
-  "outage_message": "Downtime Notice: Wednesday, September 9th 9:00 AM - 1:00 PM Eastern (-4 GMT)",
-  "outage_link": "https://www.lotro.com/news/lotro-downtime-090926-en?locale=en_US",
+  "live_players": 202,
+  "outage_message": null,
+  "outage_link": null,
   "is_down": true
 }
