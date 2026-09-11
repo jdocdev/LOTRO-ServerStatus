@@ -1,122 +1,98 @@
 {
-  "last_updated": "2026-09-11T06:25:47.544Z",
+  "last_updated": "2026-09-11T11:38:57.551Z",
   "servers": [
     {
       "name": "Arkenstone",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Brandywine",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Crickhollow",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gladden",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Landroval",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Belegaer",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Evernight",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gwaihir",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Laurelin",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sirannon",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Angmar",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Mordor",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Glamdring",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sting",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Orcrist",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     }
   ],
   "steam_data": [
-    [
-      1788934030000,
-      565
-    ],
-    [
-      1788937588000,
-      617
-    ],
-    [
-      1788941233000,
-      679
-    ],
-    [
-      1788944598000,
-      716
-    ],
-    [
-      1788948365000,
-      693
-    ],
-    [
-      1788952004000,
-      736
-    ],
     [
       1788955673000,
       814
@@ -284,9 +260,33 @@
     [
       1789103221000,
       545
+    ],
+    [
+      1789106795000,
+      557
+    ],
+    [
+      1789110381000,
+      634
+    ],
+    [
+      1789113928000,
+      679
+    ],
+    [
+      1789117569000,
+      734
+    ],
+    [
+      1789121198000,
+      774
+    ],
+    [
+      1789124872000,
+      832
     ]
   ],
-  "live_players": 542,
+  "live_players": 832,
   "outage_message": null,
   "outage_link": null,
   "is_down": false
