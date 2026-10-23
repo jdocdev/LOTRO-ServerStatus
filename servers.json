@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-23T00:49:30.120Z",
+  "last_updated": "2026-10-23T05:27:04.034Z",
   "servers": [
     {
       "name": "Arkenstone",
@@ -93,22 +93,6 @@
     }
   ],
   "steam_data": [
-    [
-      1792544857000,
-      745
-    ],
-    [
-      1792548420000,
-      712
-    ],
-    [
-      1792552012000,
-      594
-    ],
-    [
-      1792555655000,
-      501
-    ],
     [
       1792559242000,
       432
@@ -284,9 +268,25 @@
     [
       1792714031000,
       690
+    ],
+    [
+      1792717580000,
+      681
+    ],
+    [
+      1792721207000,
+      619
+    ],
+    [
+      1792724798000,
+      575
+    ],
+    [
+      1792728363000,
+      506
     ]
   ],
-  "live_players": 677,
+  "live_players": 465,
   "outage_message": "MyAccount and New Account Signup Temporarily Unavailable",
   "outage_link": "https://www.lotro.com/news/lotro-myaccount-signup-unavailable-en?locale=en_US",
   "is_down": true
