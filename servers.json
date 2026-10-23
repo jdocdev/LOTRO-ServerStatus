@@ -1,118 +1,98 @@
 {
-  "last_updated": "2026-10-23T10:22:24.625Z",
+  "last_updated": "2026-10-23T15:18:16.338Z",
   "servers": [
     {
       "name": "Arkenstone",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Brandywine",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Crickhollow",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gladden",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Landroval",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Belegaer",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Evernight",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gwaihir",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Laurelin",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sirannon",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Angmar",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Mordor",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Glamdring",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sting",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Orcrist",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     }
   ],
   "steam_data": [
-    [
-      1792577200000,
-      679
-    ],
-    [
-      1792580967000,
-      680
-    ],
-    [
-      1792584583000,
-      687
-    ],
-    [
-      1792588174000,
-      168
-    ],
-    [
-      1792591733000,
-      400
-    ],
     [
       1792595434000,
       849
@@ -284,10 +264,30 @@
     [
       1792746421000,
       616
+    ],
+    [
+      1792750189000,
+      669
+    ],
+    [
+      1792753731000,
+      744
+    ],
+    [
+      1792757407000,
+      793
+    ],
+    [
+      1792760972000,
+      904
+    ],
+    [
+      1792764585000,
+      994
     ]
   ],
-  "live_players": 646,
-  "outage_message": "MyAccount and New Account Signup Temporarily Unavailable",
-  "outage_link": "https://www.lotro.com/news/lotro-myaccount-signup-unavailable-en?locale=en_US",
-  "is_down": true
+  "live_players": 1101,
+  "outage_message": null,
+  "outage_link": null,
+  "is_down": false
 }
