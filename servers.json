@@ -1,110 +1,98 @@
 {
-  "last_updated": "2026-10-25T19:11:57.195Z",
+  "last_updated": "2026-10-25T21:49:41.796Z",
   "servers": [
     {
       "name": "Arkenstone",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Brandywine",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Crickhollow",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gladden",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Landroval",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Belegaer",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Evernight",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gwaihir",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Laurelin",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sirannon",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Angmar",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Mordor",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Glamdring",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sting",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Orcrist",
       "status": "Online",
-      "pop": "Alta",
+      "pop": "Media",
       "type": "Standard"
     }
   ],
   "steam_data": [
-    [
-      1792782475000,
-      1336
-    ],
-    [
-      1792786062000,
-      1271
-    ],
-    [
-      1792789656000,
-      1123
-    ],
     [
       1792793252000,
       924
@@ -284,9 +272,21 @@
     [
       1792951284000,
       1510
+    ],
+    [
+      1792955260000,
+      1567
+    ],
+    [
+      1792958767000,
+      1528
+    ],
+    [
+      1792962468000,
+      1344
     ]
   ],
-  "live_players": 1530,
+  "live_players": 1319,
   "outage_message": null,
   "outage_link": null,
   "is_down": false
