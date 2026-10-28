@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-10-28T08:01:20.278Z",
+  "last_updated": "2026-10-28T15:02:45.595Z",
   "servers": [
     {
       "name": "Arkenstone",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -21,8 +21,8 @@
     },
     {
       "name": "Gladden",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -39,8 +39,8 @@
     },
     {
       "name": "Evernight",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -93,34 +93,6 @@
     }
   ],
   "steam_data": [
-    [
-      1793001755000,
-      522
-    ],
-    [
-      1793005635000,
-      574
-    ],
-    [
-      1793009279000,
-      629
-    ],
-    [
-      1793012831000,
-      661
-    ],
-    [
-      1793016570000,
-      730
-    ],
-    [
-      1793020203000,
-      773
-    ],
-    [
-      1793023788000,
-      828
-    ],
     [
       1793027409000,
       971
@@ -284,10 +256,38 @@
     [
       1793171219000,
       454
+    ],
+    [
+      1793174820000,
+      516
+    ],
+    [
+      1793178377000,
+      601
+    ],
+    [
+      1793181993000,
+      630
+    ],
+    [
+      1793185749000,
+      670
+    ],
+    [
+      1793189345000,
+      650
+    ],
+    [
+      1793192990000,
+      144
+    ],
+    [
+      1793196630000,
+      163
     ]
   ],
-  "live_players": 494,
-  "outage_message": "Downtime Notice: Wednesday, October 28th 9:00 AM - 1:00 PM Eastern (-4 GMT)",
-  "outage_link": "https://www.lotro.com/news/lotro-downtime-102826-en?locale=en_US",
+  "live_players": 172,
+  "outage_message": null,
+  "outage_link": null,
   "is_down": true
 }
