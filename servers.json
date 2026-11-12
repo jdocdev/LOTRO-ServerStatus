@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-11-12T00:32:46.148Z",
+  "last_updated": "2026-11-12T07:39:57.793Z",
   "servers": [
     {
       "name": "Arkenstone",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -21,8 +21,8 @@
     },
     {
       "name": "Gladden",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -39,8 +39,8 @@
     },
     {
       "name": "Evernight",
-      "status": "Online",
-      "pop": "Baja",
+      "status": "Maintenance",
+      "pop": "N/A",
       "type": "Standard"
     },
     {
@@ -93,38 +93,6 @@
     }
   ],
   "steam_data": [
-    [
-      1794269195000,
-      659
-    ],
-    [
-      1794272879000,
-      658
-    ],
-    [
-      1794276465000,
-      675
-    ],
-    [
-      1794280069000,
-      608
-    ],
-    [
-      1794283567000,
-      490
-    ],
-    [
-      1794287032000,
-      430
-    ],
-    [
-      1794290824000,
-      379
-    ],
-    [
-      1794294357000,
-      395
-    ],
     [
       1794297970000,
       471
@@ -284,9 +252,41 @@
     [
       1794438453000,
       729
+    ],
+    [
+      1794442135000,
+      658
+    ],
+    [
+      1794445609000,
+      658
+    ],
+    [
+      1794449213000,
+      601
+    ],
+    [
+      1794452752000,
+      542
+    ],
+    [
+      1794456409000,
+      487
+    ],
+    [
+      1794460015000,
+      414
+    ],
+    [
+      1794463638000,
+      393
+    ],
+    [
+      1794467229000,
+      427
     ]
   ],
-  "live_players": 658,
+  "live_players": 427,
   "outage_message": "Downtime Notice: Thursday, November 12th 9:00 AM - 1:00 PM Eastern (-5 GMT)",
   "outage_link": "https://www.lotro.com/news/lotro-downtime-111226-en?locale=en_US",
   "is_down": true
