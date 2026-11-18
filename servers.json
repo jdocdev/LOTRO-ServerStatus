@@ -1,130 +1,98 @@
 {
-  "last_updated": "2026-11-18T10:40:30.858Z",
+  "last_updated": "2026-11-18T19:06:44.723Z",
   "servers": [
     {
       "name": "Arkenstone",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Brandywine",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Crickhollow",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gladden",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Landroval",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Belegaer",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Evernight",
       "status": "Online",
-      "pop": "Baja",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gwaihir",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Laurelin",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sirannon",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Angmar",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Mordor",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Glamdring",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sting",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Orcrist",
-      "status": "Maintenance",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     }
   ],
   "steam_data": [
-    [
-      1794827176000,
-      573
-    ],
-    [
-      1794830965000,
-      630
-    ],
-    [
-      1794834643000,
-      704
-    ],
-    [
-      1794838192000,
-      794
-    ],
-    [
-      1794841772000,
-      845
-    ],
-    [
-      1794845408000,
-      941
-    ],
-    [
-      1794848861000,
-      1011
-    ],
-    [
-      1794852468000,
-      1087
-    ],
     [
       1794856051000,
       1176
@@ -284,10 +252,42 @@
     [
       1794996446000,
       528
+    ],
+    [
+      1795000162000,
+      549
+    ],
+    [
+      1795003730000,
+      612
+    ],
+    [
+      1795007383000,
+      683
+    ],
+    [
+      1795011001000,
+      724
+    ],
+    [
+      1795014530000,
+      780
+    ],
+    [
+      1795018230000,
+      859
+    ],
+    [
+      1795021678000,
+      865
+    ],
+    [
+      1795025318000,
+      1014
     ]
   ],
-  "live_players": 525,
-  "outage_message": "Downtime will be Thursday this week.",
-  "outage_link": "https://www.lotro.com/news/lotro-111726-downtime-message?locale=en_US",
-  "is_down": true
+  "live_players": 1051,
+  "outage_message": null,
+  "outage_link": null,
+  "is_down": false
 }
