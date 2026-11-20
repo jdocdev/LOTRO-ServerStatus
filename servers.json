@@ -1,130 +1,98 @@
 {
-  "last_updated": "2026-11-20T14:03:35.501Z",
+  "last_updated": "2026-11-20T21:45:49.601Z",
   "servers": [
     {
       "name": "Arkenstone",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Brandywine",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Crickhollow",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gladden",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Landroval",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Belegaer",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Evernight",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Gwaihir",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Laurelin",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sirannon",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Angmar",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Mordor",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Legendary"
     },
     {
       "name": "Glamdring",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Sting",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     },
     {
       "name": "Orcrist",
-      "status": "Offline",
-      "pop": "N/A",
+      "status": "Online",
+      "pop": "Media",
       "type": "Standard"
     }
   ],
   "steam_data": [
-    [
-      1795011001000,
-      724
-    ],
-    [
-      1795014530000,
-      780
-    ],
-    [
-      1795018230000,
-      859
-    ],
-    [
-      1795021678000,
-      865
-    ],
-    [
-      1795025318000,
-      1014
-    ],
-    [
-      1795028786000,
-      1121
-    ],
-    [
-      1795032461000,
-      1117
-    ],
-    [
-      1795036061000,
-      1042
-    ],
     [
       1795039617000,
       810
@@ -284,10 +252,42 @@
     [
       1795180183000,
       767
+    ],
+    [
+      1795183808000,
+      847
+    ],
+    [
+      1795187375000,
+      902
+    ],
+    [
+      1795190897000,
+      952
+    ],
+    [
+      1795194656000,
+      984
+    ],
+    [
+      1795198089000,
+      1062
+    ],
+    [
+      1795201675000,
+      1147
+    ],
+    [
+      1795205205000,
+      1197
+    ],
+    [
+      1795208817000,
+      1145
     ]
   ],
-  "live_players": 0,
+  "live_players": 1107,
   "outage_message": null,
   "outage_link": null,
-  "is_down": true
+  "is_down": false
 }
